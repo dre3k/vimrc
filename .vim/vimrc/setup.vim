@@ -41,3 +41,11 @@ set scrolloff=3
 
 " display incomplete commands
 set showcmd
+
+" Move to previous position
+if has("autocmd")
+ autocmd BufReadPost *
+  \ if line("'\"") > 0 && line("'\"") <= line("$") |
+  \   exe "normal g`\"" |
+  \ endif
+endif
