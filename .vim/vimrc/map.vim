@@ -92,7 +92,7 @@ nmap <silent> <m--> <c-w>-
 nmap <silent> <m-+> <c-w>>
 nmap <silent> <m-_> <c-w><
 " save and save all
-nmap <silent> <m-s> :call DK_Save()<cr>
+nmap <silent> <m-s> :call Save()<cr>
 imap <silent> <m-s> <esc><m-s>
 " exit
 nmap <m-x> :wq<cr>
