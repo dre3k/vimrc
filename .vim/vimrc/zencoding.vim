@@ -1,4 +1,4 @@
-function DK_ZenExp()
+function ZenExp()
   let pos = line('.')
   call zencoding#expandAbbr(0)
   if (&filetype == 'haml')

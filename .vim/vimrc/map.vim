@@ -171,7 +171,7 @@ nnoremap <silent> <c-z>   :redraw<cr>
 " split line
 nnoremap <silent> K       i<cr><esc>k$
 " ZenCoding
-inoremap <silent> <c-k>   <esc>:call DK_ZenExp()<cr>
+inoremap <silent> <c-k>   <esc>:call ZenExp()<cr>
 " cleaning up ruby code
 nnoremap <silent> <F12>cc :call CleanupRubyComments()<cr>
 nnoremap <silent> <F12>ce :call CleanupEmpty()<cr>
