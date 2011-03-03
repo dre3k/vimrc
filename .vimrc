@@ -14,5 +14,4 @@ source ~/.vim/vimrc/prev_pos.vim
 source ~/.vim/vimrc/save.vim
 source ~/.vim/vimrc/firefox.vim
 source ~/.vim/vimrc/map.vim
-
 source ~/.vim/vimrc/dbext.vim
