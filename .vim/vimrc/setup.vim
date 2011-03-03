@@ -43,9 +43,7 @@ set scrolloff=3
 set showcmd
 
 " Move to previous position
-if has("autocmd")
- autocmd BufReadPost *
-  \ if line("'\"") > 0 && line("'\"") <= line("$") |
-  \   exe "normal g`\"" |
-  \ endif
-endif
+autocmd BufReadPost *
+\ if line("'\"") > 0 && line("'\"") <= line("$") |
+\   exe "normal g`\"" |
+\ endif
