@@ -11,7 +11,7 @@ endfunction
 function! SaveAndOpen(openee)
   if !&modified || !empty(@%)
     if &modified
-      write
+      Save()
     endif
     silent exec a:openee
   else
