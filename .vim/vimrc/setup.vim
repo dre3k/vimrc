@@ -19,7 +19,7 @@ set colorcolumn=80
 set sidescroll=1
 
 " load .exrc in current directory
-set exrc
+" set exrc
 
 " status line always visible
 set laststatus=2
