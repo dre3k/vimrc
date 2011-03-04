@@ -4,7 +4,6 @@ source ~/.vim/vimrc/vimgrep.vim
 source ~/.vim/vimrc/bufferexp.vim
 source ~/.vim/vimrc/zencoding.vim
 source ~/.vim/vimrc/cleanup.vim
-source ~/.vim/vimrc/errors.vim
 source ~/.vim/vimrc/tags.vim
 source ~/.vim/vimrc/quickfix.vim
 source ~/.vim/vimrc/completion.vim

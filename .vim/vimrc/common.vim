@@ -17,3 +17,10 @@ function SaveAndOpen(openee)
     silent exec a:openee
   endif
 endfunction
+
+function ShowErrors()
+  if !empty(b:syntastic_loclist)
+    Errors
+    ll
+  endif
+endfunction
