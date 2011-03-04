@@ -8,5 +8,6 @@ let Tlist_Inc_Winwidth = 0
 function MakeTags()
   if (&filetype == 'ruby') && exists('b:rails_root')
     silent exe 'Rtags'
+    TlistUpdate
   endif
 endfunction

@@ -1,20 +1,19 @@
 function Save()
-  write
-  call MakeTags()
-  TlistUpdate
-  call ShowErrors()
-  "if (exists("b:ffr") && b:ffr)
-    "call RefreshFirefox()
-  "endif
+  if  !empty(@%) || !&modified
+    if &modified
+      write
+      call MakeTags()
+      call ShowErrors()
+    endif
+    return 1
+  else
+    echo 'E32: No file name'
+  endif
+  return 0
 endfunction
 
-function! SaveAndOpen(openee)
-  if !&modified || !empty(@%)
-    if &modified
-      Save()
-    endif
+function SaveAndOpen(openee)
+  if Save()
     silent exec a:openee
-  else
-    echo 'Unsaved file!'
   endif
 endfunction

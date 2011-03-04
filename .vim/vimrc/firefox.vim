@@ -11,3 +11,7 @@ function! RefreshFirefox()
                  \ nc localhost 4242 2>&1 > /dev/null
 "  endif
 endfunction
+
+  "if (exists("b:ffr") && b:ffr)
+    "call RefreshFirefox()
+  "endif
