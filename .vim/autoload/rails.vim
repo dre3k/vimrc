@@ -3647,6 +3647,10 @@ function! s:BufSyntax()
         exe 'syn keyword '.&syntax.'RailsMethod local_assigns contained containedin=@'.&syntax.'RailsRegions'
       endif
       exe 'syn keyword '.&syntax.'RailsRenderMethod render contained containedin=@'.&syntax.'RailsRegions'
+
+      "dre3k_fix
+      exe 'syn keyword '.&syntax.'RailsRenderMethod render_widget contained containedin=@'.&syntax.'RailsRegions'
+
       exe 'syn case match'
       set isk+=$
       exe 'syn keyword javascriptRailsFunction contained '.s:javascript_functions
