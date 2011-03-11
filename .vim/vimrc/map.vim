@@ -57,7 +57,7 @@ vnoremap <silent> <m-J> G
 vnoremap <silent> <m-y> 0
 vnoremap <silent> <m-u> ^
 vnoremap <silent> <m-i> $
-vnoremap <silent> <m-4> $
+vnoremap <silent> <m-4> $<left>
 vnoremap <silent> <m-U> d^
 vnoremap <silent> <m-I> d$
 cnoremap <m-h> <left>
