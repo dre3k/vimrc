@@ -3523,6 +3523,9 @@ endfunction
 
 "FUNCTION: s:bindMappings() {{{2
 function! s:bindMappings()
+    " dre3k_fix
+    map <silent> <buffer> <m-1> :close<cr>
+
     " set up mappings and commands for this buffer
     nnoremap <silent> <buffer> <middlerelease> :call <SID>handleMiddleMouse()<cr>
     nnoremap <silent> <buffer> <leftrelease> <leftrelease>:call <SID>checkForActivate()<cr>

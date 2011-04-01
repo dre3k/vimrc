@@ -198,7 +198,8 @@ call s:hifg("Identifier"     ,"#bbb43e","Yellow",72) " 220
 "call s:hifg("Statement"      ,"#CB7832","Brown",68) " 202
 call s:hifg("Statement"      ,"#ba7135","Brown",68) " 202
 "call s:hifg("PreProc"        ,"#AAFFFF","LightCyan",47) " 213
-call s:hifg("PreProc"        ,"#339999","DarkCyan",21) " 30
+"call s:hifg("PreProc"        ,"#339999","DarkCyan",21) " 30
+call s:hifg("PreProc"        ,"#7795a2","DarkCyan",21) " 30
 
 call s:hifg("railsUserMethod","#AACCFF","LightCyan",27)
 "call s:hifg("Type"           ,"#AAAA77","Grey",57) " 101

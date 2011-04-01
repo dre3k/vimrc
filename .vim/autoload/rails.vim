@@ -285,7 +285,8 @@ function! s:readable_last_format(start) dict abort
   if self.type_name('view')
     let format = fnamemodify(self.path(),':r:e')
     if format == ''
-      return get({'rhtml': 'html', 'rxml': 'xml', 'rjs': 'js', 'haml': 'html'},fnamemodify(self.path(),':e'),'')
+      " dre3k_fix
+      return get({'rhtml': 'html', 'rxml': 'xml', 'rjs': 'js', 'haml','slim': 'html'},fnamemodify(self.path(),':e'),'')
     else
       return format
     endif
@@ -316,7 +317,8 @@ endfunction
 
 call s:add_methods('readable',['end_of','last_opening_line','last_method_line','last_method','last_format','define_pattern'])
 
-let s:view_types = 'rhtml,erb,rxml,builder,rjs,mab,liquid,haml,dryml,mn'
+" dre3k_fix
+let s:view_types = 'rhtml,erb,rxml,builder,rjs,mab,liquid,haml,slim,dryml,mn'
 
 function! s:viewspattern()
   return '\%('.s:gsub(s:view_types,',','\\|').'\)'
@@ -3237,7 +3239,8 @@ function! s:Extract(bang,...) range abort
     let renderstr = "xml << ".s:sub(renderstr,"render ","render(").")"
   elseif ext == "rjs"
     let renderstr = "page << ".s:sub(renderstr,"render ","render(").")"
-  elseif ext == "haml"
+  " dre3k_fix
+  elseif ext == "haml" || ext == "slim"
     let renderstr = "= ".renderstr
   elseif ext == "mn"
     let renderstr = "_".renderstr
@@ -3648,7 +3651,7 @@ function! s:BufSyntax()
       endif
       exe 'syn keyword '.&syntax.'RailsRenderMethod render contained containedin=@'.&syntax.'RailsRegions'
 
-      "dre3k_fix
+      " dre3k_fix
       exe 'syn keyword '.&syntax.'RailsRenderMethod render_widget contained containedin=@'.&syntax.'RailsRegions'
 
       exe 'syn case match'
@@ -4434,6 +4437,9 @@ function! RailsBufInit(path)
     setlocal filetype=liquid
   elseif &ft =~ '^\%(haml\|x\=html\)\=$' && expand("%:e") == "haml"
     setlocal filetype=haml
+  " dre3k_fix
+  elseif &ft =~ '^\%(slim\|x\=html\)\=$' && expand("%:e") == "slim"
+    setlocal filetype=slim
   elseif &ft =~ '^\%(sass\|conf\)\=$' && expand("%:e") == "sass"
     setlocal filetype=sass
   elseif &ft =~ '^\%(scss\|conf\)\=$' && expand("%:e") == "scss"
@@ -4580,7 +4586,8 @@ function! s:BufSettings()
       call self.setvar('ragtag_javascript_include_tag', "<%= javascript_include_tag '\r' %>")
       call self.setvar('ragtag_doctype_index', 10)
     endif
-  elseif ft == 'haml'
+  " dre3k_fix
+  elseif ft == 'haml' || ft == 'slim'
     if exists("g:loaded_allml")
       call self.setvar('allml_stylesheet_link_tag', "= stylesheet_link_tag '\r'")
       call self.setvar('allml_javascript_include_tag', "= javascript_include_tag '\r'")
@@ -4636,7 +4643,8 @@ augroup railsPluginAuto
   autocmd BufWritePost */tasks/**.rake            call rails#cache_clear("rake_tasks")
   autocmd BufWritePost */generators/**            call rails#cache_clear("generators")
   autocmd FileType * if exists("b:rails_root") | call s:BufSettings() | endif
-  autocmd Syntax ruby,eruby,yaml,haml,javascript,coffee,railslog if exists("b:rails_root") | call s:BufSyntax() | endif
+  " dre3k_fix
+  autocmd Syntax ruby,eruby,yaml,haml,slim,javascript,coffee,railslog if exists("b:rails_root") | call s:BufSyntax() | endif
   autocmd QuickFixCmdPre  make* call s:push_chdir()
   autocmd QuickFixCmdPost make* call s:pop_command()
 augroup END

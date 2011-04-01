@@ -13,6 +13,7 @@ set <m-s>=s | set <m-S>=S | set <m-t>=t | set <m-T>=T
 set <m-u>=u | set <m-U>=U | set <m-v>=v | set <m-V>=V
 set <m-w>=w | set <m-W>=W | set <m-x>=x | set <m-X>=X
 set <m-y>=y | set <m-Y>=Y | set <m-z>=z | set <m-Z>=Z
+set <m-1>=1
 set <m-2>=2 | set <m-3>=3
 set <m-4>=4 | set <m-$>=$
 " <esc> and <cr>
@@ -122,7 +123,7 @@ nnoremap <silent> <m-f>6 :set foldlevel=6<cr>
 " NERD_tree, BufferExplorer, FuzzyFinder
 nnoremap <silent> <m-q>  :call SaveAndOpen('FufFile **/')<cr>
 nnoremap <silent> <F12>r :FufRenewCache<cr>
-nnoremap <silent> <m-Q>  :NERDTreeToggle<cr>
+nnoremap <silent> <m-1>  :NERDTreeToggle<cr>
 "nnoremap <silent> <m-w>  :call OpenBufferExp()<cr>
 nnoremap <silent> <m-w>  :call SaveAndOpen('BufExplorer')<cr>
 " quickfix
