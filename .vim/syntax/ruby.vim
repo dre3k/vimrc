@@ -253,6 +253,7 @@ if !exists("ruby_no_special_methods")
 
   " dre3k_fix
   syn keyword rubyAttribute expose devise has_widgets responds_to_event after_add alias_method
+  syn keyword rubyAttribute paginates_per
 
   syn match   rubyControl   "\<\%(exit!\|\%(abort\|at_exit\|exit\|fork\|loop\|trap\)\>[?!]\@!\)"
   syn keyword rubyEval	    eval class_eval instance_eval module_eval

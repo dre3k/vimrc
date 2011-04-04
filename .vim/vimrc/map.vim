@@ -47,20 +47,26 @@ nnoremap <silent> <m-i> $
 nnoremap <silent> <m-4> $
 nnoremap <silent> <m-U> d^
 nnoremap <silent> <m-I> d$
-vnoremap <silent> <m-h> b
-vnoremap <silent> <m-l> w
-vnoremap <silent> <m-H> db
-vnoremap <silent> <m-L> dw
-vnoremap <silent> <m-j> 
-vnoremap <silent> <m-k> 
-vnoremap <silent> <m-K> gg
-vnoremap <silent> <m-J> G
-vnoremap <silent> <m-y> 0
-vnoremap <silent> <m-u> ^
-vnoremap <silent> <m-i> $
-vnoremap <silent> <m-4> $<left>
-vnoremap <silent> <m-U> d^
-vnoremap <silent> <m-I> d$
+" move block
+vnoremap <silent> <m-h> <gv
+vnoremap <silent> <m-l> >gv
+vnoremap <silent> <m-j> :<c-u>call MoveSelection(1)<cr>
+vnoremap <silent> <m-k> :<c-u>call MoveSelection(-1)<cr>
+" original behavion
+" vnoremap <silent> <m-h> b
+" vnoremap <silent> <m-l> w
+" vnoremap <silent> <m-H> db
+" vnoremap <silent> <m-L> dw
+" vnoremap <silent> <m-j> 
+" vnoremap <silent> <m-k> 
+" vnoremap <silent> <m-K> gg
+" vnoremap <silent> <m-J> G
+" vnoremap <silent> <m-y> 0
+" vnoremap <silent> <m-u> ^
+" vnoremap <silent> <m-i> $
+" vnoremap <silent> <m-4> $<left>
+" vnoremap <silent> <m-U> d^
+" vnoremap <silent> <m-I> d$
 cnoremap <m-h> <left>
 cnoremap <m-l> <right>
 cnoremap <m-j> <down>

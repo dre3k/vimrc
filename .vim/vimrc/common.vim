@@ -24,3 +24,9 @@ function ShowErrors()
     ll
   endif
 endfunction
+
+function! MoveSelection(step)
+  let scount = line("'>") - line("'<")
+  let direction = (a:step == -1) ? "k" : "j"
+  silent exe "normal \<esc>gvd" . direction . "PV" . scount . "j"
+endfunction
