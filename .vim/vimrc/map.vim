@@ -64,7 +64,7 @@ vnoremap <silent> <m-k> :<c-u>call MoveSelection(-1)<cr>
 " vnoremap <silent> <m-y> 0
 " vnoremap <silent> <m-u> ^
 " vnoremap <silent> <m-i> $
-" vnoremap <silent> <m-4> $<left>
+vnoremap <silent> <m-4> <end><left>
 " vnoremap <silent> <m-U> d^
 " vnoremap <silent> <m-I> d$
 cnoremap <m-h> <left>
@@ -100,6 +100,7 @@ nmap <silent> <m-+> <c-w>>
 nmap <silent> <m-_> <c-w><
 " save and save all
 nmap <silent> <m-s> :call Save()<cr>
+vmap <silent> <m-s> <esc>:call Save()<cr>
 imap <silent> <m-s> <esc><m-s>
 " exit
 nmap <m-x> :wq<cr>
@@ -115,17 +116,17 @@ imap <m-O> <esc>O
 nnoremap <silent> <space> i <esc>l
 nnoremap <silent> <bs> hx
 " folding
-nnoremap <silent> <m-f>f :set foldenable<cr> :set foldmethod=syntax\|set foldcolumn=5<cr> :set foldlevel=1<cr>
-nnoremap <silent> <m-F>  :set foldenable<cr> :set foldmethod=syntax\|set foldcolumn=5<cr> :set foldlevel=1<cr>
-nnoremap <silent> <m-f>i :set foldenable<cr> :set foldmethod=indent\|set foldcolumn=5<cr> :set foldlevel=1<cr>
-nnoremap <silent> <m-f>d :set nofoldenable\|set foldcolumn=0<cr>
-nnoremap <silent> <m-f>0 :set foldlevel=0<cr>
-nnoremap <silent> <m-f>1 :set foldlevel=1<cr>
-nnoremap <silent> <m-f>2 :set foldlevel=2<cr>
-nnoremap <silent> <m-f>3 :set foldlevel=3<cr>
-nnoremap <silent> <m-f>4 :set foldlevel=4<cr>
-nnoremap <silent> <m-f>5 :set foldlevel=5<cr>
-nnoremap <silent> <m-f>6 :set foldlevel=6<cr>
+"nnoremap <silent> <m-f>f :set foldenable<cr> :set foldmethod=syntax\|set foldcolumn=5<cr> :set foldlevel=1<cr>
+"nnoremap <silent> <m-F>  :set foldenable<cr> :set foldmethod=syntax\|set foldcolumn=5<cr> :set foldlevel=1<cr>
+"nnoremap <silent> <m-f>i :set foldenable<cr> :set foldmethod=indent\|set foldcolumn=5<cr> :set foldlevel=1<cr>
+"nnoremap <silent> <m-f>d :set nofoldenable\|set foldcolumn=0<cr>
+"nnoremap <silent> <m-f>0 :set foldlevel=0<cr>
+"nnoremap <silent> <m-f>1 :set foldlevel=1<cr>
+"nnoremap <silent> <m-f>2 :set foldlevel=2<cr>
+"nnoremap <silent> <m-f>3 :set foldlevel=3<cr>
+"nnoremap <silent> <m-f>4 :set foldlevel=4<cr>
+"nnoremap <silent> <m-f>5 :set foldlevel=5<cr>
+"nnoremap <silent> <m-f>6 :set foldlevel=6<cr>
 " NERD_tree, BufferExplorer, FuzzyFinder
 nnoremap <silent> <m-q>  :call SaveAndOpen('FufFile **/')<cr>
 nnoremap <silent> <F12>r :FufRenewCache<cr>
@@ -133,7 +134,7 @@ nnoremap <silent> <m-1>  :NERDTreeToggle<cr>
 "nnoremap <silent> <m-w>  :call OpenBufferExp()<cr>
 nnoremap <silent> <m-w>  :call SaveAndOpen('BufExplorer')<cr>
 " quickfix
-nnoremap <silent> <m-r> :call ToggleQuickFixWindow()<cr>
+" nnoremap <silent> <m-r> :call ToggleQuickFixWindow()<cr>
 nnoremap <silent> <m-.> :cnext<cr>
 nnoremap <silent> <m-,> :cprev<cr>
 nnoremap <silent> >   :clast<cr>
@@ -146,8 +147,9 @@ nnoremap <silent> <m-e> :TlistToggle<cr>
 vnoremap <silent> <m-g> :call VimgrepSelection()<cr>
 nnoremap <silent> <m-g> :call VimgrepWord()<cr>
 nnoremap <silent> <m-G> :call VimgrepInput()<cr>
-" substitute in selection
-vnoremap <m-s> :s/
+" substitute
+nnoremap <m-f> V:s/
+vnoremap <m-f> :s/
 " NERD_commenter
 nmap <m-2> ,cu
 vmap <m-2> ,cu
@@ -182,3 +184,10 @@ inoremap <silent> <c-k>   <esc>:call ZenExp()<cr>
 " cleaning up ruby code
 nnoremap <silent> <F12>cc :call CleanupRubyComments()<cr>
 nnoremap <silent> <F12>ce :call CleanupEmpty()<cr>
+" tabs
+nmap <m-9> <c-pageup>
+nmap <m-0> <c-pagedown>
+" refactor
+nnoremap <silent> <m-r>b   :call RRCurlyBracesToggleDoEnd()<cr>
+" z register
+nnoremap <silent> <m-z>   "z

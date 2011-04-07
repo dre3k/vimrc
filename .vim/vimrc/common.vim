@@ -26,7 +26,24 @@ function ShowErrors()
 endfunction
 
 function! MoveSelection(step)
-  let scount = line("'>") - line("'<")
+  let lcount = line("$")
+  let fline = line("'<")
+  let lline = line("'>")
+  let scount = lline - fline
   let direction = (a:step == -1) ? "k" : "j"
-  silent exe "normal \<esc>gvd" . direction . "PV" . scount . "j"
+  if scount == 0
+    let sel_move = ""
+  else
+    let sel_move = scount . "j"
+  endif
+  let restore_selection = "normal \<esc>gv"
+  if ((lline == lcount) && (direction == "j")) || ((fline == 1) && (direction == "k"))
+    silent exe restore_selection
+    return 0
+  endif
+  if ((lline == (lcount - 1)) && (direction == "j"))
+    silent exe restore_selection . "dpV" . sel_move
+  else
+    silent exe restore_selection . "d" . direction . "PV" . sel_move
+  endif
 endfunction

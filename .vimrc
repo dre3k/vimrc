@@ -11,3 +11,4 @@ source ~/.vim/vimrc/syntactic.vim
 source ~/.vim/vimrc/nerdtree.vim
 source ~/.vim/vimrc/map.vim
 source ~/.vim/vimrc/dbext.vim
+rubyf  ~/.vim/vimrc/ruby_refactor.rb
